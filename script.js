@@ -1,47 +1,7 @@
 'use strict';
 
-var ENDPOINT    = 'https://script.google.com/macros/s/AKfycbwFgVYKSaTWwFFnj2yDk29DDJ32ezTGqc-fACQdxYXRTPCmqGiIzby1WtXJvCDpfAVC/exec';
-var DRAFT_KEY   = 'screeno_draft';
-var currentStep = 1;
-
-/* ── Wizard ── */
-
-function goToStep(n) {
-    document.getElementById('step-' + currentStep).classList.add('hidden');
-    currentStep = n;
-    document.getElementById('step-' + currentStep).classList.remove('hidden');
-    updateProgress();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function updateProgress() {
-    document.querySelectorAll('.progress-step').forEach(function (el) {
-        var s = parseInt(el.dataset.step, 10);
-        el.classList.toggle('active', s === currentStep);
-        el.classList.toggle('done',   s < currentStep);
-    });
-    document.querySelectorAll('.progress-line').forEach(function (line, i) {
-        line.classList.toggle('done', i + 1 < currentStep);
-    });
-}
-
-function nextStep() {
-    if (currentStep === 1) {
-        var nameInput = document.getElementById('businessName');
-        if (!nameInput.value.trim()) {
-            nameInput.classList.add('invalid');
-            nameInput.focus();
-            showToast('Business name is required', 'error');
-            return;
-        }
-        nameInput.classList.remove('invalid');
-    }
-    if (currentStep < 3) goToStep(currentStep + 1);
-}
-
-function prevStep() {
-    if (currentStep > 1) goToStep(currentStep - 1);
-}
+var ENDPOINT  = 'https://script.google.com/macros/s/AKfycbwFgVYKSaTWwFFnj2yDk29DDJ32ezTGqc-fACQdxYXRTPCmqGiIzby1WtXJvCDpfAVC/exec';
+var DRAFT_KEY = 'screeno_draft';
 
 /* ── Helpers ── */
 
@@ -405,7 +365,7 @@ function resetForm() {
 
     document.getElementById('draftBanner').classList.add('hidden');
 
-    goToStep(1);
+    window.scrollTo({ top: 0 });
 }
 
 /* ── Toast ── */
@@ -432,10 +392,6 @@ document.addEventListener('DOMContentLoaded', function () {
         this.classList.remove('invalid');
     });
 
-    document.getElementById('nextBtn1').addEventListener('click', nextStep);
-    document.getElementById('nextBtn2').addEventListener('click', nextStep);
-    document.getElementById('backBtn2').addEventListener('click', prevStep);
-    document.getElementById('backBtn3').addEventListener('click', prevStep);
     document.getElementById('saveDraftBtn').addEventListener('click', saveDraft);
     document.getElementById('submitBtn').addEventListener('click', submitLead);
 

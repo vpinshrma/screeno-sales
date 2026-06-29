@@ -4,7 +4,11 @@
       "Bash(open *)",
       "Bash(node --check /Users/vipinsharma/Desktop/screeno-sales/script.js)",
       "Bash(python3 -m http.server 8080)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/index.html)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/index.html)",
+      "Bash(python3 *)",
+      "Bash(convert --version)",
+      "Bash(node -e \"require\\('canvas'\\)\")",
+      "Bash(ffmpeg -y -f lavfi -i \"color=c=0x2563eb:size=192x192:r=1\" -vf \"drawtext=text='S':fontcolor=white:fontsize=110:x=\\(w-tw\\)/2:y=\\(h-th\\)/2:fontfile=/System/Library/Fonts/Helvetica.ttc:fontstyle=Bold\" -frames:v 1 icon-192.png)"
     ]
   }
 }
