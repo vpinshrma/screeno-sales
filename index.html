@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Screeno Sales</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Screeno Sales</h1>
+        <span class="subtitle">Lead Capture</span>
+    </header>
+
+    <main class="container">
+
+        <!-- Progress Indicator -->
+        <div class="progress">
+            <div class="progress-step active" data-step="1">
+                <div class="step-circle">1</div>
+                <span class="step-label">Business</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="2">
+                <div class="step-circle">2</div>
+                <span class="step-label">Observe</span>
+            </div>
+            <div class="progress-line"></div>
+            <div class="progress-step" data-step="3">
+                <div class="step-circle">3</div>
+                <span class="step-label">Notes</span>
+            </div>
+        </div>
+
+        <div id="draftBanner" class="draft-banner hidden">
+            &#128196; Draft restored &mdash; review and submit when ready
+        </div>
+
+        <form id="leadForm" novalidate>
+
+            <!-- ── Step 1: Business ── -->
+            <div class="step" id="step-1">
+
+                <section class="card">
+                    <h2 class="section-title">Business Info</h2>
+
+                    <div class="field">
+                        <label for="businessName">Business Name <span class="required">*</span></label>
+                        <input type="text" id="businessName" name="businessName"
+                            placeholder="Enter business name" required autocomplete="organization">
+                    </div>
+
+                    <div class="field">
+                        <label for="category">Category</label>
+                        <select id="category" name="category">
+                            <option value="">Select category</option>
+                            <option value="restaurant">Restaurant</option>
+                            <option value="cafe">Cafe</option>
+                            <option value="bar">Bar &amp; Lounge</option>
+                            <option value="food-court">Food Court</option>
+                            <option value="hotel">Hotel</option>
+                            <option value="salon">Salon</option>
+                            <option value="gym">Gym &amp; Fitness</option>
+                            <option value="retail">Retail Store</option>
+                            <option value="clinic">Medical Clinic</option>
+                            <option value="office">Office</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="ownerName">Owner Name</label>
+                        <input type="text" id="ownerName" name="ownerName"
+                            placeholder="Enter owner name" autocomplete="name">
+                    </div>
+
+                    <div class="field">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone"
+                            placeholder="Enter phone number" autocomplete="tel">
+                    </div>
+                </section>
+
+                <div class="nav-row">
+                    <button type="button" id="nextBtn1" class="next-btn">Next &rarr;</button>
+                </div>
+
+            </div>
+
+            <!-- ── Step 2: Observe ── -->
+            <div class="step hidden" id="step-2">
+
+                <section class="card">
+                    <h2 class="section-title">TV Setup</h2>
+
+                    <div class="field">
+                        <label>TV Present?</label>
+                        <div class="toggle-group" id="tvPresent">
+                            <button type="button" class="toggle-btn" data-value="yes">Yes</button>
+                            <button type="button" class="toggle-btn" data-value="no">No</button>
+                        </div>
+                        <input type="hidden" id="tvPresentValue" name="tvPresent">
+                    </div>
+
+                    <div class="field">
+                        <label>Android TV?</label>
+                        <div class="toggle-group" id="androidTv">
+                            <button type="button" class="toggle-btn" data-value="yes">Yes</button>
+                            <button type="button" class="toggle-btn" data-value="no">No</button>
+                        </div>
+                        <input type="hidden" id="androidTvValue" name="androidTv">
+                    </div>
+
+                    <div class="field">
+                        <label>TV Visible to Customers?</label>
+                        <div class="toggle-group" id="tvVisible">
+                            <button type="button" class="toggle-btn" data-value="yes">Yes</button>
+                            <button type="button" class="toggle-btn" data-value="no">No</button>
+                        </div>
+                        <input type="hidden" id="tvVisibleValue" name="tvVisible">
+                    </div>
+
+                    <div class="field">
+                        <label for="currentContent">Current Content</label>
+                        <select id="currentContent" name="currentContent">
+                            <option value="">Select content type</option>
+                            <option value="none">None</option>
+                            <option value="static-images">Static Images</option>
+                            <option value="videos">Videos</option>
+                            <option value="menu-display">Menu Display</option>
+                            <option value="promotions">Promotions</option>
+                            <option value="social-media">Social Media Feed</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2 class="section-title">Business Details</h2>
+
+                    <div class="field">
+                        <label for="menuType">Menu Type</label>
+                        <select id="menuType" name="menuType">
+                            <option value="">Select menu type</option>
+                            <option value="none">No Menu</option>
+                            <option value="printed">Paper / Printed Menu</option>
+                            <option value="digital-board">Digital Menu Board</option>
+                            <option value="qr-code">QR Code Menu</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="customerTraffic">Customer Traffic</label>
+                        <select id="customerTraffic" name="customerTraffic">
+                            <option value="">Select traffic level</option>
+                            <option value="low">Low (&lt; 50 / day)</option>
+                            <option value="medium">Medium (50 – 200 / day)</option>
+                            <option value="high">High (200 – 500 / day)</option>
+                            <option value="very-high">Very High (500+ / day)</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Interest Level</label>
+                        <div class="rating-group" id="interestGroup">
+                            <button type="button" class="rating-btn" data-value="1">1</button>
+                            <button type="button" class="rating-btn" data-value="2">2</button>
+                            <button type="button" class="rating-btn" data-value="3">3</button>
+                            <button type="button" class="rating-btn" data-value="4">4</button>
+                            <button type="button" class="rating-btn" data-value="5">5</button>
+                        </div>
+                        <input type="hidden" id="interestValue" name="interest">
+                    </div>
+                </section>
+
+                <div class="nav-row">
+                    <button type="button" id="backBtn2" class="back-btn">&larr; Back</button>
+                    <button type="button" id="nextBtn2" class="next-btn">Next &rarr;</button>
+                </div>
+
+            </div>
+
+            <!-- ── Step 3: Notes ── -->
+            <div class="step hidden" id="step-3">
+
+                <section class="card">
+                    <h2 class="section-title">Notes</h2>
+
+                    <div class="field">
+                        <label for="painPoint">Pain Point</label>
+                        <textarea id="painPoint" name="painPoint"
+                            placeholder="What problem are they currently facing?" rows="3"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" name="notes"
+                            placeholder="Additional observations..." rows="3"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="followUpDate">Follow-up Date</label>
+                        <input type="date" id="followUpDate" name="followUpDate">
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2 class="section-title">Media &amp; Location</h2>
+
+                    <div class="field">
+                        <label>Photo</label>
+                        <label for="photo" class="file-btn">
+                            <span id="photoLabel">&#128247; Take Photo</span>
+                        </label>
+                        <input type="file" id="photo" name="photo"
+                            accept="image/*" capture="environment">
+                        <div id="photoPreview" class="photo-preview hidden"></div>
+                    </div>
+
+                    <div class="field">
+                        <label>Location</label>
+                        <button type="button" id="getLocation" class="location-btn">
+                            &#128205; Get Current Location
+                        </button>
+                        <div id="locationDisplay" class="location-display hidden"></div>
+                        <input type="hidden" id="latitude" name="latitude">
+                        <input type="hidden" id="longitude" name="longitude">
+                    </div>
+                </section>
+
+                <div class="nav-row">
+                    <button type="button" id="backBtn3" class="back-btn">&larr; Back</button>
+                </div>
+
+                <div class="btn-row">
+                    <button type="button" id="saveDraftBtn" class="draft-btn">Save Draft</button>
+                    <button type="button" id="submitBtn" class="save-btn">Submit</button>
+                </div>
+
+            </div>
+
+        </form>
+    </main>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
