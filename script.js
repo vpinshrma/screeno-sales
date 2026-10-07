@@ -1,6 +1,6 @@
 'use strict';
 
-var ENDPOINT  = 'https://script.google.com/macros/s/AKfycbwFgVYKSaTWwFFnj2yDk29DDJ32ezTGqc-fACQdxYXRTPCmqGiIzby1WtXJvCDpfAVC/exec';
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbwG7cAkLudJALVoI8gl4DUmYEaZj035BrrqWVKZl-nFvBNJfEB5R_Qu0eq8_rE8WYX6JQ/exec';
 var DRAFT_KEY = 'screeno_draft';
 
 /* ── Helpers ── */
